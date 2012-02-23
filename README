@@ -29,6 +29,7 @@ run the following;
 
     $ sudo apt-get install xvfb
 
+
 ## Useage
 
     $save_path = /absolute/path/to/image.jpg';

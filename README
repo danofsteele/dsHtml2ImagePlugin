@@ -1,20 +1,17 @@
-dsHtml2ImagePlugin
-==========================================================================
+## dsHtml2ImagePlugin
 
-A symfony 1.x plugin that utilizes the wkhtmltoimage unix utility to 
+A Symfony 1.x plugin that utilizes the wkhtmltoimage unix utility to 
 create snapshot images of web pages
 
 
-Dependencies
-==========================================================================
+## Dependencies
 
 * sfImageTransformPlugin
 * wkhtmltoimage
 * xvfb-run
 
 
-wkhtmltoimage
-==========================================================================
+## wkhtmltoimage
 
 The plugin comes complete with both the 32 and 64 bit binaries of 
 wkhtmltoimage-0.11.0_rc1 which are located in the plugins 
@@ -24,31 +21,29 @@ Further instructions can be found here;
 http://madalgo.au.dk/~jakobt/wkhtmltoxdoc/wkhtmltoimage_0.10.0_rc2-doc.html
 
 
-Xvfb
-==========================================================================
+## Xvfb
 
 wkhtmltoimage requires an X11 server in order to render the HTML to be 
 captured. I've chosen to use xvfb to do this. To install on ubuntu, simply 
 run the following;
 
-$ sudo apt-get install xvfb
+    $ sudo apt-get install xvfb
 
-Useage
-==========================================================================
+## Useage
 
-$save_path = /absolute/path/to/image.jpg';
-$url = 'http://www.url.to.capture.com/';
+    $save_path = /absolute/path/to/image.jpg';
+    $url = 'http://www.url.to.capture.com/';
     
-$h2i = new dsHtml2Image($url,$save_path);
-$h2i->setOptions(array(
-  'quality' => 80,
-  'disable-javascript' => ''   
-));
-$img = $h2i->getImage();
+    $h2i = new dsHtml2Image($url,$save_path);
+    $h2i->setOptions(array(
+        'quality' => 80,
+        'disable-javascript' => ''   
+    ));
+    $img = $h2i->getImage();
 
 Will capture a full size screen capture of the url supplied, with the 
 quality set at 80% and the javascript disabled and save to the path 
 you specified.
 
-the method getImage will return an instance of sfImage preloaded with the 
+The method getImage will return an instance of sfImage preloaded with the 
 screen capture for you to manipulate as required.

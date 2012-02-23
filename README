@@ -1,0 +1,11 @@
+dsHtml2ImagePlugin
+==================================================
+
+A symfony 1.x plugin that utilizes the wkhtmltoimage unix utility to create snapshot images of web pages
+
+Dependencies
+==================================================
+
+* sfImageTransformPlugin
+* wkhtmltoimage
+* xvfb-run

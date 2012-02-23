@@ -1,4 +1,5 @@
 default:
   dsHtml2ImagePlugin:
     utility: <?php echo sfConfig::get('sf_plugins_dir'); ?>/dsHtml2ImagePlugin/lib/vendor/wkhtmltoimage/wkhtmltoimage-amd64
+    log: <?php echo sfConfig::get('sf_log_dir'); ?>/xvfb_error_log
     options: ['H','f','h','n','p','0','V','allow','checkbox-checked-svg','checkbox-svg','cookie','cookie-jar','crop-h','crop-w','crop-x','crop-y','custom-header','custom-header-propagation','no-custom-header-propagation','debug-javascript','no-debug-javascript','encoding','extended-help','format','height','help','htmldoc','images','no-images','disable-javascript','enable-javascript','javascript-delay','load-error-handling','disable-local-file-access','enable-local-file-access','manpage','minimum-font-size','password','disable-plugins','enable-plugins','post','post-file','proxy','quality','radiobutton-checked-svg','radiobutton-svg','readme','run-script','disable-smart-width','stop-slow-scripts','no-stop-slow-scripts','transparent','user-style-sheet','username','version','width','window-status','zoom']

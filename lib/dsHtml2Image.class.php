@@ -97,6 +97,17 @@ class dsHtml2Image
   }
   
   /**
+   * Returns the desired log file lcoation
+   *
+   * @return string
+   * @author Dan Steele
+   */
+  protected function getLogFile()
+  {
+    return sfConfig::get('app_dsHtml2ImagePlugin_log');
+  }  
+  
+  /**
    * Constructs the shell command to make the snapshot
    *
    * @return void
@@ -104,7 +115,7 @@ class dsHtml2Image
    */
   protected function getCommand()
   {
-    return 'xvfb-run '.$this->getUtility().' '.$this->getOptionsString().' '.$this->url.' '.$this->save_path;
+    return 'xvfb-run -a --error-file='.$this->getLogFile().' '.$this->getUtility().' '.$this->getOptionsString().' '.$this->url.' '.$this->save_path;
   }
   
   /**
@@ -115,10 +126,16 @@ class dsHtml2Image
    */
   protected function execute()
   {
-    try {
+    $now = time();
+    if(file_exists($this->save_path))
+    {
       unlink($this->save_path);
-      shell_exec($this->getCommand());      
-    } catch (sfException $e) {}
+    }
+    
+    if(shell_exec($this->getCommand()) == NULL)
+    {
+      throw new sfException('Failed to run: '.$this->getCommand());
+    }
   }
   
   /**
